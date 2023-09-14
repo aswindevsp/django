@@ -22,6 +22,9 @@
                     <td>{{ doctor.speciality }}</td>
                     <td>{{ doctor.experience }}</td>
                     <td>{{ doctor.qualification }}</td>
+
+                    <td> <a href="{% url 'getsingledoctor' doctor.pk %}">View</a></td>
+                    
                 </tr>
             {% endfor %}
         </tbody>

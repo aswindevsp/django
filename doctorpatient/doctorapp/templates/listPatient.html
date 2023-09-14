@@ -25,7 +25,13 @@
                     <td>{{ patient.doctorname }}</td>
 
                     <td> <a href="{% url 'getsinglepatient' patient.pk %}">View</a></td>
-
+                     
+                    <td>
+                        <form method="post" action="{% url 'deletepatient' patient.pk %}">
+                            {% csrf_token %}
+                            <input type="submit" value="delete">
+                        </form>
+                    </td>
 
                 </tr>
             {% endfor %}

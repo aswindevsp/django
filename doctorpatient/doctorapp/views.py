@@ -106,3 +106,41 @@ def updatePatientView(request, patient_id):
         patient.save()
     return redirect('listPatient')  
 
+def deletePatientView(request,patient_id):
+  patient = Patient.objects.filter(pk = patient_id)
+  patient.delete()
+  return redirect('listPatient')
+
+
+
+def singleDoctorView(request,doctor_id):
+  doctor = Doctor.objects.get(pk = doctor_id)
+  context = {
+        'doctor':doctor
+  }  
+  return render(request=request,template_name='singledoctor.html',context=context)
+
+def updateDoctorView(request, doctor_id):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        email = request.POST['email']
+        mobile = request.POST['mobile']
+        speciality = request.POST['speciality']
+        name = request.POST['name']
+        experience = request.POST['experience']
+        qualification = request.POST['qualification']
+        
+
+
+        doctor = Doctor.objects.get(pk=doctor_id)
+        doctor.username = username
+        doctor.password = password
+        doctor.name = name
+        doctor.email = email
+        doctor.mobile = mobile
+        doctor.speciality = speciality
+        doctor.experience = experience
+        doctor.qualification = qualification
+        doctor.save()
+    return redirect('listDoctor')  

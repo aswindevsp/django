@@ -14,4 +14,10 @@ urlpatterns=[
 
    path(route='<int:patient_id>/',view = views.singlePatientView, name='getsinglepatient'),
    path(route='update/<int:patient_id>/',view = views.updatePatientView, name='updatepatient'),
+   path(route='delete/<int:patient_id>/',view = views.deletePatientView, name='deletepatient'),
+
+   
+   path(route='doctor<int:doctor_id>/',view = views.singleDoctorView, name='getsingledoctor'),
+ 
+  path(route='update/doctor<int:doctor_id>/',view = views.updateDoctorView, name='updatedoctor'),
 ]
