@@ -104,5 +104,5 @@ def updatePatientView(request, patient_id):
         patient.address = address
         patient.doctorname = doctorname
         patient.save()
-        return redirect('listPatient')  
+    return redirect('listPatient')  
 
