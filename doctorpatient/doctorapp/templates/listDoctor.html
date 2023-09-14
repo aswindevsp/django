@@ -6,6 +6,25 @@
     <title>Document</title>
 </head>
 <body>
-   list pat 
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Speciality</th>
+                <th>Experience</th>
+                <th>Qualification</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for doctor in doctors %}
+                <tr>
+                    <td>{{ doctor.name }}</td>
+                    <td>{{ doctor.speciality }}</td>
+                    <td>{{ doctor.experience }}</td>
+                    <td>{{ doctor.qualification }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>

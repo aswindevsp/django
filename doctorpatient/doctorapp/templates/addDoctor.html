@@ -7,10 +7,22 @@
     <h1>Doctor Registration</h1>
     <form method="post" action="{% url 'addDoctor' %}">
         {% csrf_token %}
-        <label for="doctor_name">Doctor Name:</label>
-        <input type="text" id="doctor_name" name="doctor_name" required><br><br>
-        <label for="doctor_specialty">Specialty:</label>
-        <input type="text" id="doctor_specialty" name="doctor_specialty" required><br><br>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="mobile">Mobile:</label>
+        <input type="text" id="mobile" name="mobile" required><br><br>
+        <label for="speciality">Specialty:</label>
+        <input type="text" id="speciality" name="speciality" required><br><br>
+        <label for="experience">Experience:</label>
+        <input type="number" id="experience" name="experience" required><br><br>
+        <label for="qualification">Qualification:</label>
+        <input type="text" id="qualification" name="qualification" required><br><br>
         <input type="submit" value="Register Doctor">
     </form>
 </body>
