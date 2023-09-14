@@ -17,3 +17,4 @@ class Patient(models.Model):
     mobile = models.CharField(max_length=15)
     address = models.TextField()
     doctorname = models.CharField(max_length=20,default="ftdf")
+    consultation = models.TextField(default="No consultation yet")

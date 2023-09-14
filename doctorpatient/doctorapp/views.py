@@ -11,7 +11,8 @@ def homePageView(request):
         if username == 'admin' and password == 'admin':
             return render(request, 'admin.html')
         elif Doctor.objects.filter(username=username, password=password).exists():
-            return render(request, 'doctor.html')
+            patients = Patient.objects.all().filter(doctorname=username)
+            return render(request, 'doctor.html', {'patients': patients})
         else:
             return render(request, 'login.html')
     else:
@@ -106,3 +107,13 @@ def updatePatientView(request, patient_id):
         patient.save()
     return redirect('listPatient')  
 
+def consult(request, patient_id):
+    patient = Patient.objects.get(pk=patient_id)
+    print("tesing")
+    if request.method == 'POST':
+        consultation = request.POST['consultation']
+        patient.consultation = consultation
+        patient.save()
+        patients = Patient.objects.all().filter(doctorname=patient.doctorname)
+        return render(request, 'doctor.html', {'patients': patients})
+    return render(request, 'consult.html', {'patient': patient})
