@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 
 from .models import Doctor, Patient
 
@@ -30,11 +30,13 @@ def addPatientPageView(request):
         email = request.POST['email']
         mobile = request.POST['mobile']
         address = request.POST['address']
+        doctorname = request.POST['doctorname']
         patient = Patient(
             name=name, 
             email=email, 
             mobile=mobile, 
-            address=address) 
+            address=address,
+            doctorname=doctorname) 
         
         patient.save()
     return render(request, 'addPatient.html')
@@ -71,4 +73,36 @@ def listDoctorPageView(request):
     docotors = Doctor.objects.all()
     return render(request, 'listDoctor.html', {'doctors': docotors})
 
+
+
+def singlePatientView(request,patient_id):
+  patient = Patient.objects.get(pk = patient_id)
+  context = {
+        'patient':patient
+  }  
+  return render(request=request,template_name='singlepatient.html',context=context)
+
+def updatePatientView(request, patient_id):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        mobile = request.POST['mobile']
+        address = request.POST['address']
+        doctorname = request.POST['doctorname']
+
+        # Print the values for debugging.
+        print("Name:", name)
+        print("Email:", email)
+        print("Mobile:", mobile)
+        print("Address:", address)
+        print("Doctor Name:", doctorname)
+
+        patient = Patient.objects.get(pk=patient_id)
+        patient.name = name
+        patient.email = email
+        patient.mobile = mobile
+        patient.address = address
+        patient.doctorname = doctorname
+        patient.save()
+        return redirect('listPatient')  
 

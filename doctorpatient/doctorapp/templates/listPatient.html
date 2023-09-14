@@ -22,6 +22,11 @@
                     <td>{{ patient.email }}</td>
                     <td>{{ patient.mobile }}</td>
                     <td>{{ patient.address }}</td>
+                    <td>{{ patient.doctorname }}</td>
+
+                    <td> <a href="{% url 'getsinglepatient' patient.pk %}">View</a></td>
+            
+
                 </tr>
             {% endfor %}
         </tbody>
