@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    
+        <form method="post" action="{% url 'updatepatient' patient.pk %}">
+            {% csrf_token %}
+        <table>
+        <tr>
+            <td><input type="text" value="{{ patient.name }}" name="name"></td>
+            <td><input type="text" value="{{ patient.address }}" name="address"></td>
+            <td><input type="text" value="{{ patient.mobile }}" name="course"></td>
+            <td><input type="text" value="{{ patient.email }}" name="email"></td>
+            <td><input type="text" value="{{ patient.doctorname }}" name="doctorname"></td>
+            <td><input type="submit" value="save"> </td>
+        </tr>
+    
+        </table>
+
+        </form>
+    
+</body>
+</html>
