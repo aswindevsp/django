@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctor Registration</title>
+</head>
+<body>
+    <h1>Doctor Registration</h1>
+    <form method="post" action="{% url 'addDoctor' %}">
+        {% csrf_token %}
+        <label for="doctor_name">Doctor Name:</label>
+        <input type="text" id="doctor_name" name="doctor_name" required><br><br>
+        <label for="doctor_specialty">Specialty:</label>
+        <input type="text" id="doctor_specialty" name="doctor_specialty" required><br><br>
+        <input type="submit" value="Register Doctor">
+    </form>
+</body>
+</html>

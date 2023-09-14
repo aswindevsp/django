@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medical Records System</title>
+</head>
+<body>
+    <h1>Medical Records System</h1>
+    
+    <h2>Actions:</h2>
+    
+    <form method="get" action="{% url 'addDoctor'%}">
+        <button type="submit">Register Doctor</button>
+    </form>
+
+    <form method="get" action="{% url 'addPatient'%}">
+        <button type="submit">Register Patient</button>
+    </form>
+
+    <form method="get" action="{% url 'listDoctor'%}">
+        <button type="submit">List All Doctors</button>
+    </form>
+
+    <form method="get" action="{% url 'listPatient'%}">
+        <button type="submit">List All Patients</button>
+    </form>
+</body>
+</html>
