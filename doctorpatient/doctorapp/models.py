@@ -8,7 +8,7 @@ class Doctor(models.Model):
     email = models.EmailField()
     mobile = models.CharField(max_length=15)  
     speciality = models.CharField(max_length=100)
-    experience = models.IntegerField()  
+    experience = models.CharField(max_length=100 ,default="0")  
     qualification = models.CharField(max_length=100) 
 
 class Patient(models.Model):
@@ -17,3 +17,4 @@ class Patient(models.Model):
     mobile = models.CharField(max_length=15)
     address = models.TextField()
     doctorname = models.CharField(max_length=20,default="ftdf")
+    consultation = models.TextField(default="No consultation yet")

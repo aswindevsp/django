@@ -20,4 +20,6 @@ urlpatterns=[
    path(route='doctor<int:doctor_id>/',view = views.singleDoctorView, name='getsingledoctor'),
  
   path(route='update/doctor<int:doctor_id>/',view = views.updateDoctorView, name='updatedoctor'),
+   
+   path(route='consult/<int:patient_id>/',view = views.consult, name='consult'),
 ]

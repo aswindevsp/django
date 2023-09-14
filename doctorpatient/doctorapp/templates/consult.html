@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>Edit Consultation</title>
+</head>
+<body>
+    <h1>Patient Information</h1>
+    <p><strong>Name:</strong> {{ patient.name }}</p>
+    <p><strong>Email:</strong> {{ patient.email }}</p>
+    <p><strong>Mobile:</strong> {{ patient.mobile }}</p>
+    <p><strong>Address:</strong> {{ patient.address }}</p>
+    <p><strong>Doctor Name:</strong> {{ patient.doctorname }}</p>
+
+    <h2>Edit Consultation</h2>
+    <form method="post" action = "{% url 'consult' patient.pk %}">
+        {% csrf_token %}
+        <textarea name="consultation" rows="5" cols="50">{{ patient.consultation }}</textarea><br><br>
+        <input type="submit" value="Save">
+    </form>
+</body>
+</html>
+
+
+
+
+
